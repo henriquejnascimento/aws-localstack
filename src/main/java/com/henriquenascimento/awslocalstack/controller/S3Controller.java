@@ -51,7 +51,7 @@ public class S3Controller {
 
     @DeleteMapping("/{bucketName}")
     public void deleteBucket(@PathVariable String bucketName) {
-        s3Service.deleteBucket(bucketName);
+        s3Service.deleteBucket(bucketName); //TODO: Error deleting bucket: The bucket you tried to delete is not empty
     }
 
     @PostMapping("/{bucketName}/objects")
@@ -99,4 +99,13 @@ public class S3Controller {
         s3Service.deleteObjects(bucketName, objects);
     }
 
+    @PostMapping("/{bucketName}/create-directory")
+    public ResponseEntity<String> createDirectory(@PathVariable String bucketName, @RequestBody String directoryName) {
+        try {
+            s3Service.createDirectory(bucketName, directoryName);
+            return ResponseEntity.ok("Directory created successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error creating directory: " + e.getMessage());
+        }
+    }
 }

@@ -216,4 +216,15 @@ public class S3Service {
             return "Error connecting to LocalStack: " + e.getMessage();
         }
     }
+
+    public void createDirectory(String bucketName, String directoryName) {
+        String objectKey = directoryName.endsWith("/") ? directoryName : directoryName + "/";
+
+        PutObjectRequest putObjectRequest = PutObjectRequest.builder()
+                .bucket(bucketName)
+                .key(objectKey)
+                .build();
+
+        s3Client.putObject(putObjectRequest, Paths.get("/dev/null"));
+    }
 }
