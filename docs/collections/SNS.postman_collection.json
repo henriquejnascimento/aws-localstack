@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "5b928d2c-5bd6-4fc3-b72c-5d6046289c10",
+		"name": "SNS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2550105",
+		"_collection_link": "https://lively-astronaut-9146-1.postman.co/workspace/aws-localstack~b355f9fd-1517-4358-8c71-3e5d8b72bc5d/collection/2550105-5b928d2c-5bd6-4fc3-b72c-5d6046289c10?action=share&source=collection_link&creator=2550105"
+	},
+	"item": [
+		{
+			"name": "Send message",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/sns/send?message=Messsage test 1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"sns",
+						"send"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "Messsage test 1"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X POST \"http://localhost:8080/sns/send?message=Hello+SNS+from+LocalStack\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Disassociate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/sns/disassociate/topic-test/test-queue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"sns",
+						"disassociate",
+						"topic-test",
+						"test-queue"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST \"http://localhost:8080/sns/send?message=Hello+SNS+from+LocalStack\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Associate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/sns/associate/topic-test/test-queue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"sns",
+						"associate",
+						"topic-test",
+						"test-queue"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST \"http://localhost:8080/sns/send?message=Hello+SNS+from+LocalStack\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "List subscriptions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/sns/subscriptions/topic-test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"sns",
+						"subscriptions",
+						"topic-test"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST \"http://localhost:8080/sns/send?message=Hello+SNS+from+LocalStack\"\n"
+			},
+			"response": []
+		}
+	]
+}
