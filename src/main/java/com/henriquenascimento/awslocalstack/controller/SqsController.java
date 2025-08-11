@@ -16,7 +16,7 @@ public class SqsController {
     private SqsService service;
 
     @PostMapping("/send")
-    public ResponseEntity<String> createProduct(@RequestBody final String message) {
+    public ResponseEntity<String> sendMessage(@RequestBody final String message) {
         service.sendMessage(message);
         return ResponseEntity.ok("Message sent successfully: " + message);
     }
