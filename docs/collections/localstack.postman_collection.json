@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "5b637a3e-8c79-445c-90d1-a4beae3e2eb3",
+		"name": "localstack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2550105",
+		"_collection_link": "https://lively-astronaut-9146-1.postman.co/workspace/aws-localstack~b355f9fd-1517-4358-8c71-3e5d8b72bc5d/collection/2550105-5b637a3e-8c79-445c-90d1-a4beae3e2eb3?action=share&source=collection_link&creator=2550105"
+	},
+	"item": [
+		{
+			"name": "SNS",
+			"item": [
+				{
+					"name": "Send message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/sns/send?message=Messsage test 1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"sns",
+								"send"
+							],
+							"query": [
+								{
+									"key": "message",
+									"value": "Messsage test 1"
+								}
+							]
+						},
+						"description": "Generated from cURL: curl -X POST \"http://localhost:8080/sns/send?message=Hello+SNS+from+LocalStack\"\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Disassociate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/sns/disassociate/topic-test/test-queue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"sns",
+								"disassociate",
+								"topic-test",
+								"test-queue"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST \"http://localhost:8080/sns/send?message=Hello+SNS+from+LocalStack\"\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Associate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/sns/associate/topic-test/test-queue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"sns",
+								"associate",
+								"topic-test",
+								"test-queue"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST \"http://localhost:8080/sns/send?message=Hello+SNS+from+LocalStack\"\n"
+					},
+					"response": []
+				},
+				{
+					"name": "List subscriptions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/sns/subscriptions/topic-test",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"sns",
+								"subscriptions",
+								"topic-test"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST \"http://localhost:8080/sns/send?message=Hello+SNS+from+LocalStack\"\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SQS",
+			"item": [
+				{
+					"name": "Send message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"message test 1\"",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/sqs/send",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"sqs",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "S3",
+			"item": [
+				{
+					"name": "Test connection",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/files/test-connection",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"files",
+								"test-connection"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List buckets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/files",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create bucket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/files/bucket-1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"files",
+								"bucket-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload file",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bucketName",
+									"value": "bucket-1",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/henrique/Downloads/objectName-1"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8081/files/upload",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"files",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete bucket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/files/bucket-1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"files",
+								"bucket-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create file",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"objectName\":  \"file-1.txt\",\n    \"text\": \"message test 1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/files/bucket-1/objects",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"files",
+								"bucket-1",
+								"objects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download file",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/files/download/bucket-1/file-test.txt",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"files",
+								"download",
+								"bucket-1",
+								"file-test.txt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get file url",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/files/bucket-1/objects/file-test.txt",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"files",
+								"bucket-1",
+								"objects",
+								"file-test.txt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Move file",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/files/bucket-1/objects/file-test.txt/bucket-2",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"files",
+								"bucket-1",
+								"objects",
+								"file-test.txt",
+								"bucket-2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List files",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/files/bucket-1/objects",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"files",
+								"bucket-1",
+								"objects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete file",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/files/bucket-1/objects/test-s3-upload-1.txt",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"files",
+								"bucket-1",
+								"objects",
+								"test-s3-upload-1.txt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete list file",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"file-1.txt\", \n    \"file-2.txt\"\n]\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/files/bucket-1/objects",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"files",
+								"bucket-1",
+								"objects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create directory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "my-directory",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/files/bucket-2/create-directory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"files",
+								"bucket-2",
+								"create-directory"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST \"https://your-api-url/{bucketName}/create-directory\" \\\n     -H \"Content-Type: application/json\" \\\n     -d \"\\\"my-directory\\\"\"\n"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
