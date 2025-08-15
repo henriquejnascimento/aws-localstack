@@ -114,10 +114,10 @@ Considering the queue name: test-queue.fifo
 
 
 ### AWS SNS
-Considering an topic name: topic-test
+Considering an topic name: test-topic
 
 1. Create the SNS topic in LocalStack:  
-   ```aws --endpoint-url=http://localhost:4566 sns create-topic --name topic-test```
+   ```aws --endpoint-url=http://localhost:4566 sns create-topic --name test-topic```
 
 2. Create the SQS queue in LocalStack:  
    ```aws --endpoint-url=http://localhost:4566 sqs create-queue --queue-name test-queue```
@@ -129,4 +129,4 @@ Considering an topic name: topic-test
    ```aws --endpoint-url=http://localhost:4566 sqs get-queue-attributes --attribute-name QueueArn --queue-url http://localhost:4566/000000000000/test-queue```
 
 5. Associate SNS with SQS:  
-   ```aws --endpoint-url=http://localhost:4566 sns subscribe --topic-arn arn:aws:sns:us-east-1:000000000000:**topic-test** --protocol sqs --notification-endpoint arn:aws:sqs:us-east-1:000000000000:test-queue```
+   ```aws --endpoint-url=http://localhost:4566 sns subscribe --topic-arn arn:aws:sns:us-east-1:000000000000:test-topic --protocol sqs --notification-endpoint arn:aws:sqs:us-east-1:000000000000:test-queue```
