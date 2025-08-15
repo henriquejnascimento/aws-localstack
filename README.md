@@ -15,6 +15,7 @@ Spring Boot Demo using AWS SDK 2.x with LocalStack
  - Docker Desktop v4.42.1
  - Docker v28.3.3
  - Docker Compose v2.36.2
+   - https://github.com/henriquejnascimento/docker/tree/dev/aws-localstack 
  - Docker image localstack v4.7.0
 
 ### AWS CLI
