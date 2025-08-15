@@ -62,7 +62,11 @@ public class S3Service {
     }
 
     public List<Bucket> listBuckets() {
-        return s3Client.listBuckets().buckets();
+        log.info("Listing buckets...");
+        List<Bucket> buckets = s3Client.listBuckets().buckets();
+        log.info("Total buckets found: {}", buckets.size());
+        return buckets;
+
     }
 
     public void deleteBucket(String bucketName) {
