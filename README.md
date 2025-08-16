@@ -87,13 +87,13 @@ NOTE: You can also specify the region in the commands above, using as an example
 ### AWS SQS
 Considering the queue name: test-queue.fifo
 
-1. List Queues
+1. List Queues  
 ```aws --endpoint-url=http://localhost:4566 sqs list-queues```
 
-2. Create a FIFO Queue
+2. Create a FIFO Queue  
    ```aws --endpoint-url=http://localhost:4566 sqs create-queue --queue-name test-queue.fifo --attributes FifoQueue=true,ContentBasedDeduplication=true```
 
-3. Send Message to the FIFO Queue
+3. Send Message to the FIFO Queue  
    ```aws --endpoint-url=http://localhost:4566 sqs send-message --queue-url http://localhost:4566/000000000000/test-queue.fifo --message-body "Test mensagem 1" --message-group-id "1"```
 4. Listen to a Queue
    ```
@@ -106,11 +106,11 @@ Considering the queue name: test-queue.fifo
    fi
    done
    ```
-5. View Queue Messages
+5. View Queue Messages  
    ```aws --endpoint-url=http://localhost:4566 sqs receive-message --queue-url http://localhost:4566/000000000000/test-queue.fifo --max-number-of-messages 1```
-6. Purge a Queue
+6. Purge a Queue  
    ```aws --endpoint-url=http://localhost:4566 sqs purge-queue --queue-url http://localhost:4566/000000000000/test-queue.fifo```
-7. Delete a Queue
+7. Delete a Queue  
    ```aws --endpoint-url=http://localhost:4566 sqs delete-queue --queue-url http://localhost:4566/000000000000/test-queue.fifo```
 
 
